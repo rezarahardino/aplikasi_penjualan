@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rpt_jth_tempo" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c9126ebc-4c88-416f-8c34-1e0467c54ba0">
+	<property name="ireport.zoom" value="1.464100000000002"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="tgl" class="java.lang.String"/>
+	<parameter name="nama_usaha" class="java.lang.String"/>
+	<parameter name="alamat_usaha" class="java.lang.String"/>
+	<parameter name="tgla" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT * FROM tb_penjualan
+WHERE date(tgl_tempo) >= $P{tgl}
+ORDER BY nama_pelanggan ASC]]>
+	</queryString>
+	<field name="no_transaksi" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="no_struk" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="kode_pelanggan" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nama_pelanggan" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tgl_transaksi" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tgl_tempo" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="petugas" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="status" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="bayar" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="potongan" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="timestmp" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="56" splitType="Stretch">
+			<staticText>
+				<reportElement x="120" y="35" width="109" height="20" uuid="4004cc58-3d95-4e55-b658-8cf641ff5c25"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[KODE PELANGGAN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="22" y="35" width="87" height="20" uuid="67e1d601-dddc-42e1-9803-8977ce379d39"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[NO. STRUK]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="235" y="35" width="119" height="20" uuid="39aa3bff-6892-46eb-b7c3-b0948ec5abc7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[NAMA PELANGGAN]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="-17" width="86" height="15" uuid="521b7a58-409c-4665-be69-c6bb5c6e439f"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{nama_usaha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="86" y="-17" width="183" height="11" uuid="92521a7b-76d1-4b87-8191-3e10dff6ffb9"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{alamat_usaha}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="173" y="2" width="233" height="13" uuid="39826c46-4273-470d-814d-a3895306d1b3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[REKAP PELANGGAN JATUH TEMPO]]></text>
+			</staticText>
+			<line>
+				<reportElement x="-12" y="55" width="568" height="1" uuid="9a1f8fc6-ba73-47f4-bd9f-a4a99ca65734"/>
+			</line>
+			<line>
+				<reportElement x="-12" y="32" width="568" height="1" uuid="d3f42e10-1768-4336-803c-e872fe76b013"/>
+			</line>
+			<textField>
+				<reportElement x="269" y="16" width="111" height="13" uuid="a4a27fad-976c-4019-b042-46d75d9b2c23"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{tgla}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="189" y="14" width="80" height="13" uuid="b779f1e3-06fe-44a6-b34a-a6960b17432b"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[TANGGAL :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="532" y="-10" width="24" height="20" uuid="98fd5679-1ef5-4ff4-a7a4-d94da23fdbd6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="430" y="-10" width="100" height="20" uuid="c91bc80f-9b83-4016-bb6e-6ee4b29f2b84"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Hal.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="364" y="35" width="100" height="20" uuid="a4c31206-61ca-4063-9d0d-d1741a60cd23"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[TGL. TRANSAKSI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="474" y="34" width="81" height="20" uuid="5601c65c-c2b1-418a-90d3-0dcbc3d751bb"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[STATUS]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="13" splitType="Stretch">
+			<textField>
+				<reportElement x="-12" y="1" width="31" height="12" uuid="b24e0ff0-8deb-4a63-b1f5-ada1d4288f5d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="22" y="1" width="87" height="12" uuid="39e70a55-688a-408e-85a6-1c10c93267fb"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{no_struk}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="120" y="1" width="109" height="12" uuid="c2cf318a-9062-4bb5-91ee-d5389525cd75"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{kode_pelanggan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="235" y="1" width="119" height="12" uuid="5d271a8d-464b-41dd-87c4-7e5c646764fd"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nama_pelanggan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="364" y="1" width="100" height="12" uuid="d435985a-87d3-4f10-b5a6-bb6b7474cb94"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tgl_transaksi}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="474" y="1" width="82" height="12" uuid="24323aaa-d3c3-450f-a71c-1c09dbabd01f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{status}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="102" splitType="Stretch"/>
+	</summary>
+</jasperReport>
